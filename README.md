@@ -5,7 +5,10 @@ A demo web application intended as an educational tool for demonstrating how you
 <img src="simple-chat-demo.png" alt="Amazon IVS Simple Chat demo" />
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1151772a4bdca3caf7f4f19e3b55e8f287789aa2
 This is a serverless web application, leveraging [Amazon IVS](https://aws.amazon.com/ivs/), [AWS Lambda](https://aws.amazon.com/lambda/), and WebSockets. The web user interface is a [single page application](https://en.wikipedia.org/wiki/Single-page_application) built using [responsive web design](https://en.wikipedia.org/wiki/Responsive_web_design) frameworks and techniques, producing a native app-like experience tailored to the user's device.
 
 

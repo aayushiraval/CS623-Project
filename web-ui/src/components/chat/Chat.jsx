@@ -8,11 +8,16 @@ import * as config from '../../config';
 import VideoPlayer from '../videoPlayer/VideoPlayer';
 import SignIn from './SignIn';
 
+<<<<<<< HEAD
 import "emoji-mart/css/emoji-mart.css";
 import { Picker } from "emoji-mart";
 
 // Styles
 import * as styles from './Chat.css';
+=======
+// Styles
+import './Chat.css';
+>>>>>>> 1151772a4bdca3caf7f4f19e3b55e8f287789aa2
 
 class Chat extends Component {
 	
@@ -24,7 +29,10 @@ class Chat extends Component {
       username: '',
       message: '',
       messages: [],
+<<<<<<< HEAD
       showEmojis: false,
+=======
+>>>>>>> 1151772a4bdca3caf7f4f19e3b55e8f287789aa2
       connection: null,
 	   selectedFile: null
 	   
@@ -33,6 +41,7 @@ class Chat extends Component {
     this.messagesEndRef = React.createRef();
   }
 
+<<<<<<< HEAD
   showEmojis = e => {
     this.setState(
       {
@@ -53,6 +62,8 @@ class Chat extends Component {
     }
   };
 
+=======
+>>>>>>> 1151772a4bdca3caf7f4f19e3b55e8f287789aa2
   componentDidMount() {
     const connection = new WebSocket(config.CHAT_WEBSOCKET);
     connection.onopen = (event) => {
@@ -72,14 +83,21 @@ class Chat extends Component {
       const messages = this.state.messages;
       const data = event.data.split('::');
       const username = data[0];
+<<<<<<< HEAD
       const incoming = this.state.username == username ? '' : 'incomingColor';
+=======
+>>>>>>> 1151772a4bdca3caf7f4f19e3b55e8f287789aa2
       const message = data.slice(1).join('::'); // in case the message contains the separator '::'
 
       messages.push({
         timestamp: Date.now(),
         username,
+<<<<<<< HEAD
         message,
         incoming
+=======
+        message
+>>>>>>> 1151772a4bdca3caf7f4f19e3b55e8f287789aa2
       });
 
       this.setState({ messages });
@@ -89,7 +107,11 @@ class Chat extends Component {
   }
 
   componentDidUpdate() {
+<<<<<<< HEAD
     //this.scrollToBottom();
+=======
+    this.scrollToBottom();
+>>>>>>> 1151772a4bdca3caf7f4f19e3b55e8f287789aa2
   }
 
   scrollToBottom = () => {
@@ -122,7 +144,10 @@ class Chat extends Component {
         connection.send(data);
         
         this.setState({ message: '' });
+<<<<<<< HEAD
         this.state.showEmojis && this.showEmojis();
+=======
+>>>>>>> 1151772a4bdca3caf7f4f19e3b55e8f287789aa2
       }
     }
   }
@@ -138,6 +163,7 @@ class Chat extends Component {
     });
     return formattedMessage;
   }
+<<<<<<< HEAD
 
   addEmoji = e => {
     console.log(e);
@@ -147,6 +173,9 @@ class Chat extends Component {
     });
   };
 
+=======
+  
+>>>>>>> 1151772a4bdca3caf7f4f19e3b55e8f287789aa2
   renderMessages = () => {
     const { messages } = this.state;
     return (
@@ -154,7 +183,11 @@ class Chat extends Component {
         let formattedMessage = this.parseUrls(message.message);
         return (
           <div className="chat-line" key={message.timestamp}>
+<<<<<<< HEAD
             <p><span className={`username ${message.incoming}`}>{message.username}</span><span dangerouslySetInnerHTML={{__html: formattedMessage}} /></p>
+=======
+            <p><span className="username">{message.username}</span><span dangerouslySetInnerHTML={{__html: formattedMessage}} /></p>
+>>>>>>> 1151772a4bdca3caf7f4f19e3b55e8f287789aa2
           </div>
         )
       })
@@ -168,6 +201,7 @@ class Chat extends Component {
   render() {
     const { username, message, showSignIn} = this.state;
     return (
+<<<<<<< HEAD
       // <div>
       //   <div className="main full-width full-height chat-container">
       //     <div className="content-wrapper mg-2">
@@ -254,6 +288,49 @@ class Chat extends Component {
           <SignIn updateUsername={this.updateUsername} />
         }
       </div>
+=======
+      <React.Fragment>
+        <header>
+          <h1>Chat App</h1>
+        </header>
+        <div className="main full-width full-height chat-container">
+          <div className="content-wrapper mg-2">
+          <VideoPlayer setMetadataId={this.setMetadataId} videoStream={config.PLAYBACK_URL} />
+            <div className="col-wrapper">
+              <div className="chat-wrapper pos-absolute pd-t-1 top-0 bottom-0">
+                <div className="messages">
+                  {this.renderMessages()}
+                  <div ref={this.messagesEndRef} />
+                </div>
+                <div className="composer">
+					 <input 
+                    ref={this.chatRef}
+                    className={`rounded ${!username ? 'hidden' : ''}`} 
+                    type="text" 
+                    placeholder="Type Message"
+                    value={message}
+                    maxLength={1000}
+                    onChange={this.handleChange}
+                    onKeyDown={this.handleKeyDown}
+					/>
+                  {!username && (
+                    <fieldset>
+                      <button onClick={this.handleOnClick} className="btn btn--primary full-width rounded">SEND MESSAGE</button>
+					  <div> 
+                
+            </div> 
+                    </fieldset>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+          {showSignIn && 
+            <SignIn updateUsername={this.updateUsername} />
+          }
+        </div>
+      </React.Fragment>
+>>>>>>> 1151772a4bdca3caf7f4f19e3b55e8f287789aa2
     )
   }
 }

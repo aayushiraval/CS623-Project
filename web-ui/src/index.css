@@ -791,7 +791,11 @@ input.rounded {
 
 .chat-line {
   padding: 12px 15px;
+<<<<<<< HEAD
   background: transparent;
+=======
+  background: var(--color-bg-chat-bubble);
+>>>>>>> 1151772a4bdca3caf7f4f19e3b55e8f287789aa2
   border-radius: var(--input-height);
   display: flex;
   margin: 0 0 5px 0;
@@ -800,7 +804,11 @@ input.rounded {
 .chat-line p {
   display: inline;
   font-weight: normal;
+<<<<<<< HEAD
   color: rgb(157, 86, 228);
+=======
+  color: rebeccapurple;
+>>>>>>> 1151772a4bdca3caf7f4f19e3b55e8f287789aa2
 }
 
 .chat-line .username {

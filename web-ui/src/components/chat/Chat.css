@@ -3,20 +3,35 @@
 
 :root {
   --section-max-width: auto;
+<<<<<<< HEAD
   --color--primary: #000;
   --color-bg-base: #f7f7f7;
   --color-bg-modal-overlay: rgba(185, 185, 192, 0.9);
+=======
+  --color--primary:  #000;
+  --color-bg-base: #F7F7F7;
+  --color-bg-modal-overlay: rgba(185,185,192,.9);
+>>>>>>> 1151772a4bdca3caf7f4f19e3b55e8f287789aa2
 }
 
 .main {
   height: calc(100vh - var(--header-height));
+<<<<<<< HEAD
   background-image: url("background.jpg");
+=======
+  background-image:url("background.jpg");
+>>>>>>> 1151772a4bdca3caf7f4f19e3b55e8f287789aa2
 }
 
 .content-wrapper {
   max-width: 1280px;
+<<<<<<< HEAD
   background: #fff;
   box-shadow: 0 6px 30px rgba(0, 0, 0, 0.08);
+=======
+  background: #FFF;
+  box-shadow: 0 6px 30px rgba(0,0,0,.08);
+>>>>>>> 1151772a4bdca3caf7f4f19e3b55e8f287789aa2
   display: flex;
   flex-direction: row;
   position: relative;
@@ -46,7 +61,11 @@
 
 .col-wrapper {
   width: 400px;
+<<<<<<< HEAD
   background: #fff;
+=======
+  background: #FFF;
+>>>>>>> 1151772a4bdca3caf7f4f19e3b55e8f287789aa2
   flex-shrink: 0;
   align-self: stretch;
   position: relative;
@@ -76,6 +95,7 @@
 }
 
 .btn:disabled {
+<<<<<<< HEAD
   opacity: 0.5;
   background: purple;
 }
@@ -95,6 +115,12 @@
   margin-left: "200px";
 }
 
+=======
+  opacity: .5;
+  background: purple;
+}
+
+>>>>>>> 1151772a4bdca3caf7f4f19e3b55e8f287789aa2
 @media (max-width: 1080px) {
   .content-wrapper {
     height: 100%;
@@ -106,6 +132,7 @@
     height: auto;
     flex-grow: 1;
   }
+<<<<<<< HEAD
 }
 
 .absolutePositioned {
@@ -166,4 +193,6 @@
 
 .incomingColor {
   color: teal;
+=======
+>>>>>>> 1151772a4bdca3caf7f4f19e3b55e8f287789aa2
 }
