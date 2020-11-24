@@ -72,7 +72,7 @@ class Chat extends Component {
       const messages = this.state.messages;
       const data = event.data.split('::');
       const username = data[0];
-      const incoming = this.state.username == username ? '' : 'incomingColor';
+      const incoming = this.state.username === username ? '' : 'incomingColor';
       const message = data.slice(1).join('::'); // in case the message contains the separator '::'
 
       messages.push({
