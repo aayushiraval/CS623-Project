@@ -1,11 +1,19 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
-Description: CS623-Project
+Description: Simple Chat
 
 Parameters:
   TableName:
     Type: String
     Default: 'simplechat_connections'
+    Description: (Required) The name of the new DynamoDB to store connection identifiers for each connected clients. Minimum 3 characters
+    MinLength: 3
+    MaxLength: 50
+    AllowedPattern: ^[A-Za-z_]+$
+    ConstraintDescription: 'Required. Can be characters and underscore only. No numbers or special characters allowed.'
+  TableName2:
+    Type: String
+    Default: 'ChatHistory'
     Description: (Required) The name of the new DynamoDB to store connection identifiers for each connected clients. Minimum 3 characters
     MinLength: 3
     MaxLength: 50
@@ -109,6 +117,21 @@ Resources:
       SSESpecification:
         SSEEnabled: True
       TableName: !Ref TableName
+  HistoryTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      AttributeDefinitions:
+      - AttributeName: "ChatId"
+        AttributeType: "N"
+      KeySchema:
+      - AttributeName: "ChatId"
+        KeyType: "HASH"
+      ProvisionedThroughput:
+        ReadCapacityUnits: 5
+        WriteCapacityUnits: 5
+      SSESpecification:
+        SSEEnabled: True
+      TableName: !Ref TableName2
   OnConnectFunction:
     Type: AWS::Serverless::Function
     Properties:
@@ -132,9 +155,12 @@ Resources:
       Environment:
         Variables:
           TABLE_NAME: !Ref TableName
+          TABLE_NAME2: !Ref TableName2
       Policies:
       - DynamoDBCrudPolicy:
           TableName: !Ref TableName
+      - DynamoDBCrudPolicy:
+          TableName: !Ref TableName2
       - Statement:
         - Effect: Allow
           Action:
