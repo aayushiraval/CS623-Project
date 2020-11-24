@@ -43,7 +43,7 @@ exports.sendMessage = async event => {
   const putHistory = {
     TableName: 'ChatHistory',
     Item: {
-      ChatId: 'C'+Math.floor((Math.random() * 100000) + 1),
+      ChatId: Math.floor((Math.random() * 100000) + 1),
       Message: testArray[1],
       UserName: testArray[0]
     }
