@@ -25,6 +25,7 @@ exports.onConnect = async event => {
 exports.sendMessage = async event => {
   let connectionData;
   
+  
   try {
     connectionData = await ddb.scan({ TableName: TABLE_NAME, ProjectionExpression: 'connectionId' }).promise();
   } catch (e) {
@@ -37,15 +38,29 @@ exports.sendMessage = async event => {
   });
   
   const postData = JSON.parse(event.body).data;
+  var chatData = postData.split("::")
+  console.log(chatData)
+  const putHistory = {
+    TableName: 'ChatHistory',
+    Item: {
+      ChatId: Math.floor((Math.random() * 100000) + 1),
+      Message: chatData[1],
+      UserName: chatData[0]
+    }
+  };
+  
+  console.log(putHistory);
   
   const postCalls = connectionData.Items.map(async ({ connectionId }) => {
     try {
       await apigwManagementApi.postToConnection({ ConnectionId: connectionId, Data: postData }).promise();
+      await ddb.put(putHistory).promise();
     } catch (e) {
       if (e.statusCode === 410) {
         console.log(`Found stale connection, deleting ${connectionId}`);
         await ddb.delete({ TableName: TABLE_NAME, Key: { connectionId } }).promise();
       } else {
+        console.log(e);
         throw e;
       }
     }
@@ -76,4 +91,3 @@ exports.onDisconnect = async event => {
 
   return { statusCode: 200, body: 'Disconnected.' };
 };
-
