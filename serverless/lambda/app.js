@@ -38,14 +38,14 @@ exports.sendMessage = async event => {
   });
   
   const postData = JSON.parse(event.body).data;
-  var testArray = postData.split("::")
-  console.log(testArray)
+  var chatData = postData.split("::")
+  console.log(chatData)
   const putHistory = {
     TableName: 'ChatHistory',
     Item: {
       ChatId: Math.floor((Math.random() * 100000) + 1),
-      Message: testArray[1],
-      UserName: testArray[0]
+      Message: chatData[1],
+      UserName: chatData[0]
     }
   };
   
