@@ -8,7 +8,7 @@ A web application created as a final project for CS623, Which includes a simple 
 This is a serverless web application, leveraging [Amazon IVS](https://aws.amazon.com/ivs/), [AWS Lambda](https://aws.amazon.com/lambda/), and WebSockets. The web user interface is a [single page application](https://en.wikipedia.org/wiki/Single-page_application) built using [responsive web design](https://en.wikipedia.org/wiki/Responsive_web_design) frameworks and techniques, producing a native app-like experience tailored to the user's device.
 
 
-The project showcases how you can implement a simple chat client next to an Amazon IVS stream. Users are asked to enter their name the first time they begin chatting. Messages are sent in the format `<Username>` `<Message>` as part of each chat "bubble". Users can send plain text messages, text links, and emojis. Chat messages have a character limit of 510 characters.
+The project showcases how you can implement a simple chat client next to an Amazon IVS stream. Users are asked to enter their name the first time they begin chatting. Messages are sent in the format `<Username>` `<Message>` as part of each chat "bubble". Users can send plain text messages, text links, and emojis. Chat messages have a character limit of 1000 characters.
 
 ## Getting Started
 
@@ -21,8 +21,8 @@ This project is comprised of two parts: `serverless` (the project backend) and `
 3. [Test locally or deploy](./serverless/README.md) to your AWS account.
 
 ## Known issues and limitations
-* The application was written for demonstration purposes and not for production use.
-* Currently only tested in the us-west-2 (Oregon) region. Additional regions may be supported depending on service availability.
+* The application was written as part of CS623 - Cloud Computing Project and not for production use.
+* Currently only tested in the us-east-1 (N.Virginia) region. Additional regions may be supported depending on service availability.
 
 ## About Amazon IVS
 Amazon Interactive Video Service (Amazon IVS) is a managed live streaming solution that is quick and easy to set up, and ideal for creating interactive video experiences. [Learn more](https://aws.amazon.com/ivs/).
