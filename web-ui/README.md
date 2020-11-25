@@ -48,3 +48,21 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
+
+
+## Docker
+
+[Dockerfile](./Dockerfile) has been provided for this project.
+If you don't have docker installed on your machine please look at the installation guides here :
+
+- Ubuntu : [Install Docker for Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
+- Mac : [Install Docker for Mac](https://docs.docker.com/docker-for-mac/install/)
+
+### Build Docker Image
+
+run `docker build -t web-app:latest -f Dockerfile .` from the project directory. to create the docker image.
+
+### Run Application Container
+
+run `docker run -itd -p 3000:3000 web-app:latest` after building the docker image to run the application container.
+After that open [http://localhost:3000](http://localhost:3000) to view it in the browser.
