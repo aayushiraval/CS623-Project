@@ -31,7 +31,7 @@ The following entries in `src/config.js` (inside the web-ui project directory) a
 * No user authentication
 * No name validation
 * Name cannot be changed once set
-* Name is not saved(ie. reloading the page would go back to initial state)
+* Name is not saved/persistent(ie. reloading the page would go back to initial state)
 
 --------------------------------------------------
 
