@@ -31,7 +31,7 @@ The following entries in `src/config.js` (inside the web-ui project directory) a
 * No user authentication
 * No name validation
 * Name cannot be changed once set
-* Name is not saved/not persistent (ie. reloading the page would go back to initial state)
+* Name is not saved(ie. reloading the page would go back to initial state)
 
 --------------------------------------------------
 
@@ -39,7 +39,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-In the project directory, you can run:
+In the project directory,you can run:
 
 ### `npm start`
 
